@@ -9,12 +9,12 @@
 	<persistence-unit name="FilmesLegais">
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>entidades.Venda</class>
 		<class>entidades.Filial</class>
 		<class>entidades.Filme</class>
 		<class>entidades.Genero</class>
-		<class>entidades.Registro</class>
 		<class>entidades.Sala</class>
+		<class>entidades.Bilheteria</class>
+		<class>entidades.Preco</class>
 
 		<properties>
 
