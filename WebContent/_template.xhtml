@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>FilmesLegais</title>
+	<h:outputStylesheet library="css" name="css/stylesheet.css" />
+
+</h:head>
+<h:body>
+	<div id="headerPage">
+		<h:form>
+			<p:panel style="margin-bottom:20px">
+				<p:outputLabel value="FilmesLegais"
+					style="font-size: 30px" />
+				<p:separator />
+				<div id="menubar">
+					<p:menubar>
+					
+						<p:menuitem value="Tela inicial" url="index.xhtml" icon="ui-icon-home"/>
+						
+						<p:menuitem value="Ranking Global" icon="ui-icon-newwin"/>
+						
+						<p:menuitem value="Meus Recordes" icon="ui-icon-note"/>
+						
+						<p:submenu label="Visualizar" icon="ui-icon-pencil">
+							<p:menuitem value="Usuários" url="#"
+								icon="ui-icon-contact" />
+							<p:menuitem value="Jogos" url="#"
+								icon="ui-icon-bookmark" />
+							<p:menuitem value="Gêneros" url="#"
+								icon="ui-icon-tag" />
+						</p:submenu>
+						
+						<f:facet name="options">
+							<p:commandButton type="button" value="Fazer Login"
+								icon="ui-icon-person" />
+						</f:facet>
+					</p:menubar>
+				</div>
+			</p:panel>
+		</h:form>
+	</div>
+	<div id="conteudo">
+		<ui:insert name="conteudo" />
+	</div>
+
+</h:body>
+</html>
