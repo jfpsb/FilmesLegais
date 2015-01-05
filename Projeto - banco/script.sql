@@ -19,33 +19,9 @@ INSERT INTO preco (idpreco, preco, descricao) VALUES (15, 15, "meia-3D");
 INSERT INTO preco (idpreco, preco, descricao) VALUES (30, 30, "3D");
 
 #Estado
-INSERT INTO estado (estado) VALUES ("Acre");
-INSERT INTO estado (estado) VALUES ("Alagoas");
-INSERT INTO estado (estado) VALUES ("Amapá");
-INSERT INTO estado (estado) VALUES ("Amazonas");
-INSERT INTO estado (estado) VALUES ("Bahia");
-INSERT INTO estado (estado) VALUES ("Ceará");
-INSERT INTO estado (estado) VALUES ("Distrito Federal");
-INSERT INTO estado (estado) VALUES ("Espírito Santo");
-INSERT INTO estado (estado) VALUES ("Goiás");
-INSERT INTO estado (estado) VALUES ("Maranhão");
-INSERT INTO estado (estado) VALUES ("Mato Grosso");
-INSERT INTO estado (estado) VALUES ("Mato Grosso do Sul");
-INSERT INTO estado (estado) VALUES ("Minas Gerais");
-INSERT INTO estado (estado) VALUES ("Pará");
-INSERT INTO estado (estado) VALUES ("Paraíba");
-INSERT INTO estado (estado) VALUES ("Paraná");
-INSERT INTO estado (estado) VALUES ("Pernambuco");
-INSERT INTO estado (estado) VALUES ("Piauí");
-INSERT INTO estado (estado) VALUES ("Rio de Janeiro");
-INSERT INTO estado (estado) VALUES ("Rio Grande do Norte");
-INSERT INTO estado (estado) VALUES ("Rio Grande do Sul");
-INSERT INTO estado (estado) VALUES ("Rondônia");
-INSERT INTO estado (estado) VALUES ("Roraima");
-INSERT INTO estado (estado) VALUES ("Santa Catarina");
-INSERT INTO estado (estado) VALUES ("São Paulo");
-INSERT INTO estado (estado) VALUES ("Sergipe");
-INSERT INTO estado (estado) VALUES ("Tocantins");
+INSERT INTO estado (idestado, estado) VALUES (1, "Acre");
+INSERT INTO estado (idestado, estado) VALUES (10, "Maranhão");
+INSERT INTO estado (idestado, estado) VALUES (25, "São Paulo");
 
 #Cidades
 #Maranhão
@@ -115,3 +91,11 @@ INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (9, 
 INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (10, 1, 30, 2);
 INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (11, 1, 30, 2);
 INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (12, 2, 30, 2);
+
+#SELECTs
+
+SELECT * FROM bilheteria;
+SELECT * FROM mes;
+select * from estado where idestado = 25;
+#Bilheteria por mês
+SELECT fk_idsala, fk_idfilme, SUM(fk_idpreco), fk_idmes FROM bilheteria WHERE fk_idmes = 0 GROUP BY fk_idfilme ORDER BY SUM(fk_idpreco) DESC;
