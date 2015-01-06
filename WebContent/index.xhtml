@@ -1,25 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      > 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-	<title>Filmes Legais</title>
-	<h:outputStylesheet library="css" name="pages.css" />
-</h:head> 
-<body>
-	<div align="center">
-		<h2>Venda e bilheteria</h2>
-		<hr  />
-		<h:form>
-			<p:commandButton action="#{indexBean.abrirVenda}" value="Venda de Ingressos" />
-			<br />
-			<br />
-			<p:commandButton action="#{indexBean.abrirBilhet}" value="Bilheteria" />
-		</h:form>
-	</div>
-</body> 
+<ui:composition template="/_template.xhtml">
+	<ui:define name="conteudo">
+
+		<p:panel id="tela" header="Venda e Bilheteria"
+			footer="Clique para acessar as opções" style="margin-bottom:20px">
+			<div align="center">
+				<h:form>
+					<p:commandButton type="button"
+						onclick="location.href='venda.xhtml'" value="Venda de Ingressos"/>
+					<br />
+					<br />
+					<p:commandButton type="button"
+						onclick="location.href='bilheteria.xhtml'" value="Bilheteria" />
+				</h:form>
+			</div>
+		</p:panel>
+	</ui:define>
+</ui:composition>
 </html>

@@ -1,43 +1,40 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      > 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-	<title>Venda de Ingressos</title>
-	<h:outputStylesheet library="css" name="pages.css" />
-</h:head>
-<body>
-	<div align="center">
-		<h:form>
-			<p:panel header="Venda de Ingressos" style="width: 50%">
-				<!--Como uma cidade vai ter uma só sala, aparece o nome da cidade e o ItemValue será o id da sala.
+<ui:composition template="/_template.xhtml">
+	<ui:define name="conteudo">
+		<div align="center">
+			<h:form>
+				<p:panel header="Venda de Ingressos" style="width: 50%">
+					<!--Como uma cidade vai ter uma só sala, aparece o nome da cidade e o ItemValue será o id da sala.
 					Vai vir de um select para o combobox-->
-				<p:panelGrid columns="2" style="width: 70%">
-					<p:outputLabel value="Em que cidade está: " for="sala"/>
-					<p:selectOneMenu id="sala" style="width: 100%">
-						<f:selectItem itemLabel="Escolha a cidade" itemValue=""/>
-						<f:selectItems value="#{vendaBean.listarCid()}"/>
-					</p:selectOneMenu>
-					<p:outputLabel value="Filme que será assistido: " for="filme"/>
-					<p:selectOneMenu id="filme" style="width: 100%">
-						<f:selectItem itemLabel="Escolha o filme" itemValue=""/>
-						<f:selectItems value="#{vendaBean.listarFilme()}"/>
-					</p:selectOneMenu>
-					<p:outputLabel value="Preço: " for="preco"/>
-					<p:selectOneMenu id="preco" style="width: 100%">
-						<f:selectItem itemLabel="Escolha o preço" itemValue=""/>
-						<f:selectItems value="#{vendaBean.listarPreco()}"/>
-					</p:selectOneMenu>
-					<p:commandButton value="Confirmar"/>
-					<p:commandButton value="Cancelar"/>
-				</p:panelGrid>
-			</p:panel>
-		</h:form>
-	</div>
-	
-</body> 
+					<p:panelGrid columns="2" style="width: 70%">
+						<p:outputLabel value="Em que cidade está: " for="sala" />
+						<p:selectOneMenu id="sala" style="width: 100%">
+							<f:selectItem itemLabel="Escolha a cidade" itemValue="" />
+							<f:selectItems value="#{vendaBean.listarCid()}" />
+						</p:selectOneMenu>
+						<p:outputLabel value="Filme que será assistido: " for="filme" />
+						<p:selectOneMenu id="filme" style="width: 100%">
+							<f:selectItem itemLabel="Escolha o filme" itemValue="" />
+							<f:selectItems value="#{vendaBean.listarFilme()}" />
+						</p:selectOneMenu>
+						<p:outputLabel value="Preço: " for="preco" />
+						<p:selectOneMenu id="preco" style="width: 100%">
+							<f:selectItem itemLabel="Escolha o preço" itemValue="" />
+							<f:selectItems value="#{vendaBean.listarPreco()}" />
+						</p:selectOneMenu>
+						<p:commandButton value="Confirmar" />
+						<p:commandButton value="Cancelar" />
+					</p:panelGrid>
+				</p:panel>
+			</h:form>
+		</div>
+
+	</ui:define>
+</ui:composition>
 </html>

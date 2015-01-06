@@ -2,7 +2,6 @@
 
 .ui-button {
 	width: 250px;
-	height: 50px;
 }
 
 body {
@@ -12,4 +11,8 @@ body {
 .ui-panelgrid tr, .ui-panelgrid td {
 	background: none;
 	border-style: none !important;
+}
+
+commandButton{
+	witdh: 200px;
 }
