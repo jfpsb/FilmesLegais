@@ -10,11 +10,7 @@
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>entidades.Filial</class>
-		<class>entidades.Filme</class>
 		<class>entidades.Genero</class>
-		<class>entidades.Sala</class>
-		<class>entidades.Bilheteria</class>
-		<class>entidades.Preco</class>
 
 		<properties>
 

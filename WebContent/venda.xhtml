@@ -16,17 +16,17 @@
 						<p:outputLabel value="Em que cidade está: " for="sala" />
 						<p:selectOneMenu id="sala" style="width: 100%">
 							<f:selectItem itemLabel="Escolha a cidade" itemValue="" />
-							<f:selectItems value="#{vendaBean.listarCid()}" />
+							<f:selectItems value="#{vendaBean.listarCid()}" var="cid" itemLabel="#{cid.cidade}" itemValue="#{cid.id}" />
 						</p:selectOneMenu>
 						<p:outputLabel value="Filme que será assistido: " for="filme" />
 						<p:selectOneMenu id="filme" style="width: 100%">
 							<f:selectItem itemLabel="Escolha o filme" itemValue="" />
-							<f:selectItems value="#{vendaBean.listarFilme()}" />
+							<f:selectItems value="#{vendaBean.listarFilme()}" var="filme" itemLabel="#{filme.filme}" itemValue="#{filme.id}"/>
 						</p:selectOneMenu>
 						<p:outputLabel value="Preço: " for="preco" />
 						<p:selectOneMenu id="preco" style="width: 100%">
 							<f:selectItem itemLabel="Escolha o preço" itemValue="" />
-							<f:selectItems value="#{vendaBean.listarPreco()}" />
+							<f:selectItems value="#{vendaBean.listarPreco()}" var="preco" itemLabel="#{preco.descricao}" itemValue="#{preco.id}"/>
 						</p:selectOneMenu>
 						<p:commandButton value="Confirmar" />
 						<p:commandButton value="Cancelar" />

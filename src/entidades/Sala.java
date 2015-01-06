@@ -1,21 +1,9 @@
 package entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-@Entity
 public class Sala {
-	
-	@Id
-	@GeneratedValue
 	private int id;
-	
 	private String descrição;
 	private String cidade;
-	
-	@ManyToOne
 	private Filial filial;
 
 	public String getDescrição() {
@@ -46,5 +34,7 @@ public class Sala {
 		return id;
 	}
 	
-	
+	public void setId(int id) {
+		this.id = id;
+	}	
 }

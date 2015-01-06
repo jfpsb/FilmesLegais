@@ -18,84 +18,40 @@ INSERT INTO preco (idpreco, preco, descricao) VALUES (10, 10, "normal");
 INSERT INTO preco (idpreco, preco, descricao) VALUES (15, 15, "meia-3D");
 INSERT INTO preco (idpreco, preco, descricao) VALUES (30, 30, "3D");
 
-#Estado
-INSERT INTO estado (idestado, estado) VALUES (1, "Acre");
-INSERT INTO estado (idestado, estado) VALUES (10, "Maranhão");
-INSERT INTO estado (idestado, estado) VALUES (25, "São Paulo");
-
-#Cidades
-#Maranhão
-INSERT INTO cidade (fk_idestado, cidade) VALUES (10, "São Luís");
-INSERT INTO cidade (fk_idestado, cidade) VALUES (10, "Zé Doca");
-INSERT INTO cidade (fk_idestado, cidade) VALUES (10, "Bacabal");
-INSERT INTO cidade (fk_idestado, cidade) VALUES (10, "Imperatriz");
-#São Paulo
-INSERT INTO cidade (fk_idestado, cidade) VALUES (25, "São Paulo");
-INSERT INTO cidade (fk_idestado, cidade) VALUES (25, "Alto Alegre");
-INSERT INTO cidade (fk_idestado, cidade) VALUES (25, "Adamantina");
-INSERT INTO cidade (fk_idestado, cidade) VALUES (25, "Araçatuba");
-#Acre
-INSERT INTO cidade (fk_idestado, cidade) VALUES (1, "Rio Branco");
-INSERT INTO cidade (fk_idestado, cidade) VALUES (1, "Xapuri");
-INSERT INTO cidade (fk_idestado, cidade) VALUES (1, "Porto Walter");
-INSERT INTO cidade (fk_idestado, cidade) VALUES (1, "Cruzeiro do Sul");
-
 #Filmes
-INSERT INTO filme (fk_idgenero, filme, cartaz) VALUES (1, "Duro de Matar", true);
-INSERT INTO filme (fk_idgenero, filme, cartaz) VALUES (8, "Interstellar", true);
-INSERT INTO filme (fk_idgenero, filme, cartaz) VALUES (8, "The Matrix", true);
+INSERT INTO filme (idgenero, filme, sinopse, cartaz) VALUES (1, "Duro de Matar", "Filme de ação num prédio",true);
+INSERT INTO filme (idgenero, filme, sinopse, cartaz) VALUES (8, "Interstellar", "Filme de ficção cient´ífica do Nolan",true);
+INSERT INTO filme (idgenero, filme, sinopse, cartaz) VALUES (8, "The Matrix", "Ficção científica verde",true);
 
 #Filial
-INSERT INTO filial (idfilial, fk_idestado) VALUES (125, 10);
-INSERT INTO filial (idfilial, fk_idestado) VALUES (788, 25);
-INSERT INTO filial (idfilial, fk_idestado) VALUES (345, 1);
+INSERT INTO filial (estado, descricao) VALUES ("Maranhão", "Filial no Maranhão");
+INSERT INTO filial (estado, descricao) VALUES ("São Paulo", "Filial em São Paulo");
+INSERT INTO filial (estado, descricao) VALUES ("Sergipe", "Filial em Sergipe");
 
 #Sala
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (1, 125);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (2, 125);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (3, 125);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (4, 125);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (5, 788);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (6, 788);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (7, 788);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (8, 788);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (9, 345);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (10, 345);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (11, 345);
-INSERT INTO sala (fk_idcidade, fk_idfilial) VALUES (12, 345);
-
-#Mês
-INSERT INTO mes (idmes, mes) VALUES (0, "Janeiro");
-INSERT INTO mes (idmes, mes) VALUES (1, "Fevereiro");
-INSERT INTO mes (idmes, mes) VALUES (2, "Março");
-INSERT INTO mes (idmes, mes) VALUES (3, "Abril");
-INSERT INTO mes (idmes, mes) VALUES (4, "Maio");
-INSERT INTO mes (idmes, mes) VALUES (5, "Junho");
-INSERT INTO mes (idmes, mes) VALUES (6, "Julho");
-INSERT INTO mes (idmes, mes) VALUES (7, "Agosto");
-INSERT INTO mes (idmes, mes) VALUES (8, "Setembro");
-INSERT INTO mes (idmes, mes) VALUES (9, "Outubro");
-INSERT INTO mes (idmes, mes) VALUES (10, "Novembro");
-INSERT INTO mes (idmes, mes) VALUES (11, "Dezembro");
+INSERT INTO sala (idfilial, cidade) VALUES (1, "São Luís");
+INSERT INTO sala (idfilial, cidade) VALUES (1, "Imperatriz");
+INSERT INTO sala (idfilial, cidade) VALUES (1, "Zé Doca");
+INSERT INTO sala (idfilial, cidade) VALUES (1, "São Domingos");
+INSERT INTO sala (idfilial, cidade) VALUES (2, "São Paulo");
+INSERT INTO sala (idfilial, cidade) VALUES (2, "Ribeirão Preto");
+INSERT INTO sala (idfilial, cidade) VALUES (2, "Santos");
+INSERT INTO sala (idfilial, cidade) VALUES (2, "Prateleira");
+INSERT INTO sala (idfilial, cidade) VALUES (3, "Sergipana");
+INSERT INTO sala (idfilial, cidade) VALUES (3, "Casados");
+INSERT INTO sala (idfilial, cidade) VALUES (3, "Piepebas");
+INSERT INTO sala (idfilial, cidade) VALUES (3, "Afonso Lopes");
 
 #Bilheteria
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (1, 1, 5, 0);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (2, 2, 5, 0);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (3, 3, 15, 2);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (4, 1, 5, 7);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (5, 1, 5, 7);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (6, 3, 5, 7);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (7, 2, 5, 0);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (8, 1, 30, 2);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (9, 3, 30, 2);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (10, 1, 30, 2);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (11, 1, 30, 2);
-INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, fk_idmes) VALUES (12, 2, 30, 2);
-
-#SELECTs
-
-SELECT * FROM bilheteria;
-SELECT * FROM mes;
-select * from estado where idestado = 25;
-#Bilheteria por mês
-SELECT fk_idsala, fk_idfilme, SUM(fk_idpreco), fk_idmes FROM bilheteria WHERE fk_idmes = 0 GROUP BY fk_idfilme ORDER BY SUM(fk_idpreco) DESC;
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (1, 1, 5, NOW());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (2, 2, 5, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (3, 3, 15, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (4, 1, 5, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (5, 1, 5, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (6, 3, 5, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (7, 2, 5, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (8, 1, 30, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (9, 3, 30, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (10, 1, 30, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (11, 1, 30, now());
+INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (12, 2, 30, now());

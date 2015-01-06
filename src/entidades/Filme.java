@@ -1,30 +1,19 @@
 package entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-@Entity
 public class Filme {
-	
-	@Id
-	@GeneratedValue
 	private int id;
-	
-	private String descricao;
+	private String filme;
 	private String sinopse;
 	private boolean cartaz;
 	
-	@ManyToOne
 	private Genero genero;
 
-	public String getDescricao() {
-		return descricao;
+	public String getFilme() {
+		return filme;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setFilme(String filme) {
+		this.filme = filme;
 	}
 
 	public String getSinopse() {
@@ -55,5 +44,7 @@ public class Filme {
 		return id;
 	}
 
-	
+	public void setId(int id) {
+		this.id = id;
+	}	
 }

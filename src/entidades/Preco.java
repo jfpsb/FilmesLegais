@@ -1,16 +1,7 @@
 package entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
 public class Preco {
-	
-	@Id
-	@GeneratedValue
-	private int id;
-	
+	private int id;	
 	private double valor;
 	private String descricao;
 	
@@ -29,6 +20,7 @@ public class Preco {
 	public int getId() {
 		return id;
 	}
-
-	
+	public void setId(int id) {
+		this.id = id;
+	}
 }
