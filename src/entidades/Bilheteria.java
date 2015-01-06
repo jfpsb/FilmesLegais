@@ -2,27 +2,30 @@ package entidades;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name="bilheteria")
 public class Bilheteria {
 
 	@Id
 	@GeneratedValue
+	@Column(name="idbilheteria")
 	private int id;
 	
 	@ManyToOne
+	@Column(name="idsala")
 	private Sala sala;
 	
 	@ManyToOne
+	@Column(name="idfilme")
 	private Filme filme;
 	
 	@ManyToOne
+	@Column(name="idpreco")
 	private Preco preco;
 	
+	@Column(name="data")
 	private Date date;
 
 	public Sala getSala() {
@@ -59,9 +62,5 @@ public class Bilheteria {
 
 	public int getId() {
 		return id;
-	}
-	
-	
-	
-	
+	}	
 }
