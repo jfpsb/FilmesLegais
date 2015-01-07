@@ -9,32 +9,65 @@
 	<ui:define name="conteudo">
 		<div align="center">
 			<h:form>
-				<p:panel header="Venda de Ingressos" style="width: 50%">
+				<p:panel header="Venda de Ingressos" style="width: 50%;">
 					<!--Como uma cidade vai ter uma só sala, aparece o nome da cidade e o ItemValue será o id da sala.
 					Vai vir de um select para o combobox-->
 					<p:panelGrid columns="2" style="width: 70%">
 						<p:outputLabel value="Em que cidade está: " for="sala" />
 						<p:selectOneMenu id="sala" style="width: 100%">
 							<f:selectItem itemLabel="Escolha a cidade" itemValue="" />
-							<f:selectItems value="#{vendaBean.listarCid()}" var="cid" itemLabel="#{cid.cidade}" itemValue="#{cid.id}" />
+							<f:selectItems value="#{vendaBean.listSala}" var="cid"
+								itemLabel="#{cid.cidade}" itemValue="#{cid.id}" />
 						</p:selectOneMenu>
 						<p:outputLabel value="Filme que será assistido: " for="filme" />
-						<p:selectOneMenu id="filme" style="width: 100%">
-							<f:selectItem itemLabel="Escolha o filme" itemValue="" />
-							<f:selectItems value="#{vendaBean.listarFilme()}" var="filme" itemLabel="#{filme.filme}" itemValue="#{filme.id}"/>
-						</p:selectOneMenu>
+						<p:panelGrid columns="2">
+							<p:inputText disabled="true" id="filme"
+								value="#{vendaBean.filme.filme}" />
+							<p:column style="witdh:20px">
+								<p:commandButton type="button" onclick="PF('filmes').show();"
+									icon="ui-icon-note" id="btnfilmes" />
+							</p:column>
+						</p:panelGrid>
+
+
 						<p:outputLabel value="Preço: " for="preco" />
 						<p:selectOneMenu id="preco" style="width: 100%">
 							<f:selectItem itemLabel="Escolha o preço" itemValue="" />
-							<f:selectItems value="#{vendaBean.listarPreco()}" var="preco" itemLabel="#{preco.descricao}" itemValue="#{preco.id}"/>
+							<f:selectItems value="#{vendaBean.listPreco}" var="preco"
+								itemLabel="#{preco.descricao}" itemValue="#{preco.id}" />
 						</p:selectOneMenu>
 						<p:commandButton value="Confirmar" />
 						<p:commandButton value="Cancelar" />
 					</p:panelGrid>
+					<p:dialog header="Filmes" widgetVar="filmes" modal="true">
+						<p:dataTable value="#{vendaBean.listfilme}" var="film"
+							style="Witdh: 18px;" emptyMessage="Filmes não cadastrados"
+							scrollable="true" scrollHeight="400">
+
+							<p:column headerText="ID" filterBy="#{film.id}"
+								filterMatchMode="contains" width="70">
+								<p:outputLabel value="#{film.id}" />
+							</p:column>
+
+							<p:column headerText="Filme" filterBy="#{film.filme}"
+								filterMatchMode="contains">
+								<p:outputLabel value="#{film.filme}" />
+							</p:column>
+
+							<p:column width="120" headerText="Ações">
+								<p:commandButton action="#{vendaBean.setFilme(film)}"
+									value="Pegar" update="@all" />
+							</p:column>
+
+						</p:dataTable>
+					</p:dialog>
 				</p:panel>
 			</h:form>
 		</div>
 
 	</ui:define>
 </ui:composition>
+
 </html>
+
+

@@ -7,24 +7,35 @@ import javax.faces.bean.ManagedBean;
 import dao.*;
 import entidades.*;
 
-@ManagedBean(name="vendaBean")
+@ManagedBean(name = "vendaBean")
 public class VendaBean {
-	
-	PrecoDAO precoDAO = new PrecoDAO();
-	FilmeDAO filmeDAO = new FilmeDAO();
-	SalaDAO salaDAO = new SalaDAO();
-	
-	public List<Sala> listarCid() {
-		 return salaDAO.listarCid();
+
+	List<Sala> listSala;
+	List<Filme> listfilme;
+	List<Preco> listPreco;
+
+	Filme filme = new Filme();
+
+	public List<Sala> getListSala() {
+		return new SalaDAO().listarCid();
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Filme> listarFilme() {
-		return filmeDAO.listarFilme();
+	public List<Filme> getListfilme() {
+		return new FilmeDAO().listarFilme();
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Preco> listarPreco() {
-		 return precoDAO.listarPreco();
+	public List<Preco> getListPreco() {
+		return new PrecoDAO().listarPreco();
 	}
+
+	public Filme getFilme() {
+		return filme;
+	}
+
+	public void setFilme(Filme filme) {
+		this.filme = filme;
+	}
+
 }
