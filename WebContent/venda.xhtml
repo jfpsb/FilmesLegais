@@ -9,7 +9,7 @@
 	<ui:define name="conteudo">
 		<div align="center">
 			<h:form>
-				<p:panel header="Venda de Ingressos" style="width: 50%;">
+				<p:panel header="Venda de Ingressos" style="width: 70%;">
 					<!--Como uma cidade vai ter uma só sala, aparece o nome da cidade e o ItemValue será o id da sala.
 					Vai vir de um select para o combobox-->
 					<center>
@@ -57,7 +57,7 @@
 
 							<p:column width="60" headerText="Ações">
 								<p:commandButton action="#{vendaBean.setFilme(film)}"
-									value="Pegar" update="@all" />
+									value="Pegar" update="@all" style="width: 100%"/>
 							</p:column>
 
 						</p:dataTable>
