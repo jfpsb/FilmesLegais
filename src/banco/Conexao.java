@@ -8,17 +8,17 @@ public class Conexao implements Serializable {
 	private Connection con;
 	private String url = "jdbc:mysql://localhost/";
 	private String banco = "filmeslegais";
-	private String usuario = "root";
-	private String senha = "1124";
+	private String user = "root";
+	private String password = ""; //1124
 	
 	public Conexao() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection(url + banco, usuario, senha);
+			con = DriverManager.getConnection(url + "" + banco, user, password);
 		} catch (ClassNotFoundException e) {	
-			e.printStackTrace();
+			System.out.println("Driver SQL não encontrado!");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Acesso Negado! Verifque o caminho, ou o usuário e senha do Banco");
 		}
 	}
 
