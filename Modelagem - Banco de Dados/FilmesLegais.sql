@@ -149,7 +149,7 @@ CREATE TABLE `preco` (
 
 LOCK TABLES `preco` WRITE;
 /*!40000 ALTER TABLE `preco` DISABLE KEYS */;
-INSERT INTO `preco` (`idpreco`, `preco`, `descricao`) VALUES (5,5,'meia-normal'),(10,10,'normal'),(15,15,'meia-3D'),(30,30,'3D');
+INSERT INTO `preco` (`idpreco`, `preco`, `descricao`) VALUES (5,5,'Meia Normal'),(10,10,'Normal'),(15,15,'Meia 3D'),(30,30,'3D');
 /*!40000 ALTER TABLE `preco` ENABLE KEYS */;
 UNLOCK TABLES;
 
