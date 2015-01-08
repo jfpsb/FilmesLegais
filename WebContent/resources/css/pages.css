@@ -1,9 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-.ui-button {
-	width: 250px;
-}
-
 body {
 	background-color: LightBlue;
 }
@@ -15,4 +11,11 @@ body {
 
 inputtext{
 	witdh: 100%
+}
+
+.AButtons{
+	width: 250px
+}
+.MiniButtons{
+	witdh:10px
 }
