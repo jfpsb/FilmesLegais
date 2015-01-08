@@ -2,10 +2,17 @@ package bean;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
-import dao.*;
-import entidades.*;
+import dao.FilmeDAO;
+import dao.PrecoDAO;
+import dao.SalaDAO;
+import entidades.Filme;
+import entidades.Preco;
+import entidades.Sala;
+import funcoes.Mensagens;
 
 @ManagedBean(name = "vendaBean")
 public class VendaBean {
@@ -36,6 +43,10 @@ public class VendaBean {
 
 	public void setFilme(Filme filme) {
 		this.filme = filme;
+	}
+	
+	public void confirma(){
+		new Mensagens().INFO("Apenas Teste");
 	}
 
 }

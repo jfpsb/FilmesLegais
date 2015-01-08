@@ -1,5 +1,7 @@
 package banco;
 
+import funcoes.*;
+
 import java.io.Serializable;
 import java.sql.*;
 
