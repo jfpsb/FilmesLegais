@@ -1,5 +1,6 @@
 package entidades;
 
+//Timestamp salva a data + hora, usado em banco de dados
 import java.sql.Timestamp;
 
 public class Bilheteria {

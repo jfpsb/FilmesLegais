@@ -37,7 +37,9 @@ public class VendaBean {
 	}
 	
 	public void confirma(){
+		//Linha para pegar a data e hora atual
 		bilheteria.setData(new Timestamp(System.currentTimeMillis()));
+		//Teste valor para idfilme
 		System.out.println("Antes de ir pro banco: " + filme.getId());
 		bilheteria.setIdfilme(filme.getId());
 		new BilheteriaDAO().salvar(bilheteria);

@@ -23,6 +23,7 @@ public class BilheteriaDAO {
 			insereSt.executeUpdate();
 			System.out.println("Salvo com sucesso.");
 		} catch (SQLException e) {
+			//Teste dos valores
 			System.out.println("Salvo sem sucesso." + bilhete.getIdfilme() + bilhete.getIdsala() + bilhete.getIdpreco() + bilhete.getData());
 			e.printStackTrace();
 		} finally {
