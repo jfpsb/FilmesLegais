@@ -19,3 +19,9 @@ inputtext{
 .MiniButtons{
 	witdh:10px
 }
+
+.borderm{
+	border-style: solid;
+	background-color: white;
+	
+}
