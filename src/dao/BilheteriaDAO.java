@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import banco.Conexao;
 import entidades.Bilheteria;
+import funcoes.Mensagens;
 
 public class BilheteriaDAO {
 	public void salvar (Bilheteria bilhete) {
@@ -22,6 +23,7 @@ public class BilheteriaDAO {
 			insereSt.setTimestamp(4, bilhete.getData());
 			insereSt.executeUpdate();
 			System.out.println("Salvo com sucesso.");
+			new Mensagens().INFO("Dados Salvos:\nFilme ID: " + bilhete.getIdfilme());
 		} catch (SQLException e) {
 			//Teste dos valores
 			System.out.println("Salvo sem sucesso." + bilhete.getIdfilme() + bilhete.getIdsala() + bilhete.getIdpreco() + bilhete.getData());

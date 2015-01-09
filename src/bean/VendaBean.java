@@ -4,22 +4,30 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import dao.*;
 import entidades.*;
 import funcoes.Mensagens;
 
+@SessionScoped
 @ManagedBean(name = "vendaBean")
 public class VendaBean {
-	Filme filme = new Filme();
+	private Filme filme = new Filme();
 	Bilheteria bilheteria = new Bilheteria();
-	
+
 	public List<Sala> getListSala() {
 		return new SalaDAO().listarCid();
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Filme> getListfilme() {
+		List<Filme> list2 = new FilmeDAO().listarFilme();
+		for (Filme filme : list2) {
+			System.out.println("Valores Recebidos: " + filme.getId());
+		}
+
 		return new FilmeDAO().listarFilme();
 	}
 
@@ -32,20 +40,10 @@ public class VendaBean {
 		return filme;
 	}
 
-	public void setFilme(Filme filme) {
-		this.filme = filme;
+	public void setFilme(Filme f) {
+		this.filme = f;
 	}
 	
-	public void confirma(){
-		//Linha para pegar a data e hora atual
-		bilheteria.setData(new Timestamp(System.currentTimeMillis()));
-		//Teste valor para idfilme
-		System.out.println("Antes de ir pro banco: " + filme.getId());
-		bilheteria.setIdfilme(filme.getId());
-		new BilheteriaDAO().salvar(bilheteria);
-		new Mensagens().INFO("Apenas Teste");
-	}
-
 	public Bilheteria getBilheteria() {
 		return bilheteria;
 	}
@@ -53,4 +51,20 @@ public class VendaBean {
 	public void setBilheteria(Bilheteria bilheteria) {
 		this.bilheteria = bilheteria;
 	}
+
+	public void confirma() {
+	
+		bilheteria.setData(new Timestamp(System.currentTimeMillis()));
+
+		bilheteria.setIdfilme(filme.getId());
+		new BilheteriaDAO().salvar(bilheteria);
+
+		bilheteria = new Bilheteria();
+		filme = new Filme();
+	}
+	
+	public void onchange(){
+		System.out.println(filme.getFilme());
+	}
+
 }
