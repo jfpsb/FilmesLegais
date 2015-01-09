@@ -1,28 +1,19 @@
 package bean;
 
+import java.sql.Timestamp;
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 
-import dao.FilmeDAO;
-import dao.PrecoDAO;
-import dao.SalaDAO;
-import entidades.Filme;
-import entidades.Preco;
-import entidades.Sala;
+import dao.*;
+import entidades.*;
 import funcoes.Mensagens;
 
 @ManagedBean(name = "vendaBean")
 public class VendaBean {
-
-	List<Sala> listSala;
-	List<Filme> listfilme;
-	List<Preco> listPreco;
-
 	Filme filme = new Filme();
-
+	Bilheteria bilheteria = new Bilheteria();
+	
 	public List<Sala> getListSala() {
 		return new SalaDAO().listarCid();
 	}
@@ -46,7 +37,18 @@ public class VendaBean {
 	}
 	
 	public void confirma(){
+		bilheteria.setData(new Timestamp(System.currentTimeMillis()));
+		System.out.println("Antes de ir pro banco: " + filme.getId());
+		bilheteria.setIdfilme(filme.getId());
+		new BilheteriaDAO().salvar(bilheteria);
 		new Mensagens().INFO("Apenas Teste");
 	}
 
+	public Bilheteria getBilheteria() {
+		return bilheteria;
+	}
+
+	public void setBilheteria(Bilheteria bilheteria) {
+		this.bilheteria = bilheteria;
+	}
 }
