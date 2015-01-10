@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/EspecialContent/_template.xhtml">
+	<ui:define name="conteudo">
+
+		<fieldset style="margin-bottom:20px" class="borderm">
+		<legend><h3>Venda e Bilheteria</h3></legend>
+			<div align="center">
+				<h:form>
+					<h:commandButton type="button"
+						onclick="location.href='venda.xhtml'" value="Venda de Ingressos" styleClass="AButtons"/>
+					<br />
+					<br />
+					<h:commandButton type="button"
+						onclick="location.href='bilheteria.xhtml'" value="Bilheteria" styleClass="AButtons"/>
+				</h:form>
+			</div>
+			<hr />
+			<h3>Clique para acessar as opções</h3>
+		</fieldset>
+	</ui:define>
+</ui:composition>
+</html>

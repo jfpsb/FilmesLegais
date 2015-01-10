@@ -13,64 +13,54 @@
 					<!--Como uma cidade vai ter uma só sala, aparece o nome da cidade e o ItemValue será o id da sala.
 					Vai vir de um select para o combobox-->
 					<center>
-					<p:panelGrid columns="2">
-						<p:outputLabel value="Em que cidade está: " for="sala" />
-						<p:selectOneMenu id="sala" style="width: 80%">
-							<f:selectItem itemLabel="Escolha a cidade" itemValue="" />
-							<f:selectItems value="#{vendaBean.listSala}" var="cid"
-								itemLabel="#{cid.cidade}" itemValue="#{cid.id}" />
-						</p:selectOneMenu>
-						<p:outputLabel value="Filme que será assistido: " for="filme" />
 						<p:panelGrid columns="2">
-							<p:inputText disabled="true" id="filme"
-								value="#{vendaBean.filme.filme}" required="True"/>
-							<p:column style="witdh:20px">
-								<p:commandButton type="button" onclick="PF('filmes').show();"
-									icon="ui-icon-note" id="btnfilmes" />
-							</p:column>
-						</p:panelGrid>
+							<p:outputLabel value="Em que cidade está: " for="sala" />
+							<p:selectOneMenu id="sala" style="width: 80%"
+								value="#{vendaBean.bilheteria.idsala}" required="true" requiredMessage="Selecione uma Cidade!">
+								<f:selectItem itemLabel="Escolha a cidade" itemValue="" />
+								<f:selectItems value="#{vendaBean.listSala}" var="cid"
+									itemLabel="#{cid.cidade}" itemValue="#{cid.id}" />
+							</p:selectOneMenu>
+							<p:outputLabel value="Filme que será assistido: " for="filme" />
+							<p:inputText id="filme" value="#{vendaBean.filme.filme}"
+								onclick="PF('filmes').show();" required="true" requiredMessage="Selecione um Filme!"/>
 
-
-						<p:outputLabel value="Preço: " for="preco" />
-						<p:selectOneMenu id="preco" style="width: 80%">
-							<f:selectItem itemLabel="Escolha o preço" itemValue="" />
-							<f:selectItems value="#{vendaBean.listPreco}" var="preco"
-								itemLabel="#{preco.descricao}" itemValue="#{preco.id}" />
-						</p:selectOneMenu>
+							<p:outputLabel value="Preço: " for="preco" />
+							<p:selectOneMenu id="preco" style="width: 80%"
+								value="#{vendaBean.bilheteria.idpreco}" required="true" requiredMessage="Selecione um Preço!">
+								<f:selectItem itemLabel="Escolha o preço" itemValue="" />
+								<f:selectItems value="#{vendaBean.listPreco}" var="preco"
+									itemLabel="#{preco.descricao}" itemValue="#{preco.id}" />
+							</p:selectOneMenu>
 						</p:panelGrid>
-						<p:commandButton value="Confirmar" styleClass="AButtons" action="#{vendaBean.confirma()}" update="@form"/>
+						<p:commandButton value="Confirmar" styleClass="AButtons"
+							action="#{vendaBean.confirma()}" update="@form" />
 					</center>
-					<p:dialog header="Filmes" widgetVar="filmes" modal="true" showEffect="size">
+					<p:dialog header="Filmes" widgetVar="filmes" modal="true"
+						showEffect="size">
 						<p:dataTable value="#{vendaBean.listfilme}" var="film"
 							style="Witdh: 18px;" emptyMessage="Filmes não cadastrados"
 							scrollable="true" scrollHeight="400">
-
 							<p:column headerText="ID" filterBy="#{film.id}"
 								filterMatchMode="contains" width="85">
 								<p:outputLabel value="#{film.id}" />
 							</p:column>
-
 							<p:column headerText="Filme" filterBy="#{film.filme}"
 								filterMatchMode="contains">
 								<p:outputLabel value="#{film.filme}" />
 							</p:column>
-
 							<p:column width="85" headerText="Ações">
 								<p:commandButton action="#{vendaBean.setFilme(film)}"
-									value="Pegar" update="@form" style="width: 100px"/>
+									value="Pegar" style="width: 100px" immediate="true">
+									<f:ajax render="@form" />
+								</p:commandButton>
 							</p:column>
-
 						</p:dataTable>
 					</p:dialog>
 				</p:panel>
-				
-				<p:growl id="messagem" showDetail="true" sticky="true" life="800"/> 
+				<p:growl id="messagem" showDetail="true" sticky="false" />
 			</h:form>
 		</div>
-
 	</ui:define>
 </ui:composition>
-
 </html>
-
-

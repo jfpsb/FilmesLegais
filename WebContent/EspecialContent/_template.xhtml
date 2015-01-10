@@ -14,27 +14,27 @@
 <h:body>
 	<div id="headerPage">
 		<h:form>
-			<p:panel style="margin-bottom:20px">
-				<p:outputLabel value="FilmesLegais" style="font-size: 30px" />
-				<p:separator />
+			<fieldset style="margin-bottom:20px" class="borderm">
+				<h:outputLabel value="FilmesLegais" style="font-size: 30px" />
+				<hr />
 				<div id="menubar">
-					<p:menubar>
+					<fieldset style="margin-bottom:20px" class="borderm">
 
-						<p:menuitem value="Tela inicial" url="index.xhtml"
-							icon="ui-icon-home" />
+						<h:commandButton type="button"
+						onclick="location.href='index.xhtml'" value="Tela Inicial" />
 
-						<p:menuitem value="Venda de Ingressos" url="venda.xhtml"
-							icon="ui-icon-newwin" />
+						<h:commandButton type="button"
+						onclick="location.href='venda.xhtml'" value="Venda de Ingressos" />
 
-						<p:menuitem value="Bilheteria" url="bilheteria.xhtml"
-							icon="ui-icon-note" />
+						<h:commandButton type="button"
+						onclick="location.href='bilheteria.xhtml'" value="Bilheteria" />
 
-						<f:facet name="options">
-							<p:commandButton type="button" icon="ui-icon-gear" />
-						</f:facet>
-					</p:menubar>
+						
+							<h:commandButton type="button" value="Configurações" style=" float: right;"/>
+						
+					</fieldset>
 				</div>
-			</p:panel>
+			</fieldset>
 		</h:form>
 	</div>
 	<div id="conteudo">

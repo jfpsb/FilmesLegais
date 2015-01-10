@@ -1,27 +1,19 @@
 package bean;
 
+import java.sql.Timestamp;
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
+import javax.faces.bean.SessionScoped;
 
-import dao.FilmeDAO;
-import dao.PrecoDAO;
-import dao.SalaDAO;
-import entidades.Filme;
-import entidades.Preco;
-import entidades.Sala;
-import funcoes.Mensagens;
+import dao.*;
+import entidades.*;
 
+@SessionScoped
 @ManagedBean(name = "vendaBean")
 public class VendaBean {
-
-	List<Sala> listSala;
-	List<Filme> listfilme;
-	List<Preco> listPreco;
-
-	Filme filme = new Filme();
+	private Filme filme = new Filme();
+	Bilheteria bilheteria = new Bilheteria();
 
 	public List<Sala> getListSala() {
 		return new SalaDAO().listarCid();
@@ -41,12 +33,31 @@ public class VendaBean {
 		return filme;
 	}
 
-	public void setFilme(Filme filme) {
-		this.filme = filme;
+	public void setFilme(Filme f) {
+		this.filme = f;
 	}
 	
-	public void confirma(){
-		new Mensagens().INFO("Apenas Teste");
+	public Bilheteria getBilheteria() {
+		return bilheteria;
+	}
+
+	public void setBilheteria(Bilheteria bilheteria) {
+		this.bilheteria = bilheteria;
+	}
+
+	public void confirma() {
+	
+		bilheteria.setData(new Timestamp(System.currentTimeMillis()));
+
+		bilheteria.setIdfilme(filme.getId());
+		new BilheteriaDAO().salvar(bilheteria);
+
+		bilheteria = new Bilheteria();
+		filme = new Filme();
+	}
+	
+	public void onchange(){
+		System.out.println(filme.getFilme());
 	}
 
 }

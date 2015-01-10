@@ -1,47 +1,40 @@
 package entidades;
 
-import java.util.Date;
+//Timestamp salva a data + hora, usado em banco de dados
+import java.sql.Timestamp;
 
 public class Bilheteria {
-	private int id;	
-	private Sala sala;	
-	private Filme filme;	
-	private Preco preco;	
-	private Date date;
-
-	public Sala getSala() {
-		return sala;
-	}
-
-	public void setSala(Sala sala) {
-		this.sala = sala;
-	}
-
-	public Filme getFilme() {
-		return filme;
-	}
-
-	public void setFilme(Filme filme) {
-		this.filme = filme;
-	}
-
-	public Preco getPreco() {
-		return preco;
-	}
-
-	public void setPreco(Preco preco) {
-		this.preco = preco;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
+	private int id, idsala, idfilme, idpreco;	
+	private Timestamp data;
+	
 	public int getId() {
 		return id;
 	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getIdsala() {
+		return idsala;
+	}
+	public void setIdsala(int idsala) {
+		this.idsala = idsala;
+	}
+	public int getIdfilme() {
+		return idfilme;
+	}
+	public void setIdfilme(int idfilme) {
+		this.idfilme = idfilme;
+	}
+	public int getIdpreco() {
+		return idpreco;
+	}
+	public void setIdpreco(int idpreco) {
+		this.idpreco = idpreco;
+	}
+	public Timestamp getData() {
+		return data;
+	}
+	public void setData(Timestamp timestamp) {
+		this.data = timestamp;
+	}	
 }
