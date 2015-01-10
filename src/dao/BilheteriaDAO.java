@@ -26,8 +26,8 @@ public class BilheteriaDAO {
 			new Mensagens().INFO("Dados Salvos:\nFilme ID: " + bilhete.getIdfilme());
 		} catch (SQLException e) {
 			//Teste dos valores
-			System.out.println("Salvo sem sucesso." + bilhete.getIdfilme() + bilhete.getIdsala() + bilhete.getIdpreco() + bilhete.getData());
-			e.printStackTrace();
+			System.out.println("Salvo sem sucesso.");
+			new Mensagens().FATAL("Houve um erro ao salvar os dados!");
 		} finally {
 			try {
 				insereSt.close();
@@ -38,4 +38,5 @@ public class BilheteriaDAO {
 			}
 		}
 	}
+
 }

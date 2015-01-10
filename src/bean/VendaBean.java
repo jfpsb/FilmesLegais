@@ -5,11 +5,9 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 
 import dao.*;
 import entidades.*;
-import funcoes.Mensagens;
 
 @SessionScoped
 @ManagedBean(name = "vendaBean")
@@ -23,11 +21,6 @@ public class VendaBean {
 
 	@SuppressWarnings("unchecked")
 	public List<Filme> getListfilme() {
-		List<Filme> list2 = new FilmeDAO().listarFilme();
-		for (Filme filme : list2) {
-			System.out.println("Valores Recebidos: " + filme.getId());
-		}
-
 		return new FilmeDAO().listarFilme();
 	}
 

@@ -41,35 +41,26 @@
 						<p:dataTable value="#{vendaBean.listfilme}" var="film"
 							style="Witdh: 18px;" emptyMessage="Filmes não cadastrados"
 							scrollable="true" scrollHeight="400">
-
 							<p:column headerText="ID" filterBy="#{film.id}"
 								filterMatchMode="contains" width="85">
 								<p:outputLabel value="#{film.id}" />
 							</p:column>
-
 							<p:column headerText="Filme" filterBy="#{film.filme}"
 								filterMatchMode="contains">
 								<p:outputLabel value="#{film.filme}" />
 							</p:column>
-
 							<p:column width="85" headerText="Ações">
 								<p:commandButton action="#{vendaBean.setFilme(film)}"
 									value="Pegar" style="width: 100px" immediate="true">
 									<f:ajax render="@form" />
 								</p:commandButton>
 							</p:column>
-
 						</p:dataTable>
 					</p:dialog>
 				</p:panel>
-
 				<p:growl id="messagem" showDetail="true" sticky="false" />
 			</h:form>
 		</div>
-
 	</ui:define>
 </ui:composition>
-
 </html>
-
-

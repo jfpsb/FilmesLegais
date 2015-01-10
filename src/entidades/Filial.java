@@ -2,8 +2,10 @@ package entidades;
 
 public class Filial {
 
-	private int id;
-	
+	private int id;	
+	public void setId(int id) {
+		this.id = id;
+	}
 	private String descricao;
 	private String estado;
 	

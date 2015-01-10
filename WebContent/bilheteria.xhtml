@@ -1,15 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      > 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>BIlheteria</title>
-</h:head> 
-<body> 
-
-</body> 
+	<title>Bilheteria</title>
+	<h:outputStylesheet library="css" name="pages.css" />
+	<style>
+table td {
+	text-align: center;
+}
+</style>
+</h:head>
+<body>
+	<h:form>
+		<div align="left">
+			<p:panel header="Pesquisa específica"
+				style="width: 30%; text-align: center;">
+				<p:panelGrid columns="2" style="width: 100%">
+					<p:outputLabel value="Escolha o mês: " for="mes"
+						style="width: 100%" />
+					<p:selectOneMenu id="mes" value="#{bilheteBean.mes}"
+						style="width: 80%">
+						<f:selectItem itemLabel="Escolha um mês" itemValue="" />
+						<f:selectItem itemLabel="Janeiro" itemValue="1" />
+						<f:selectItem itemLabel="Fevereiro" itemValue="2" />
+						<f:selectItem itemLabel="Março" itemValue="3" />
+						<f:selectItem itemLabel="Abril" itemValue="4" />
+						<f:selectItem itemLabel="Maio" itemValue="5" />
+						<f:selectItem itemLabel="Junho" itemValue="6" />
+						<f:selectItem itemLabel="Julho" itemValue="7" />
+						<f:selectItem itemLabel="Agosto" itemValue="8" />
+						<f:selectItem itemLabel="Setembro" itemValue="9" />
+						<f:selectItem itemLabel="Outubro" itemValue="10" />
+						<f:selectItem itemLabel="Novembro" itemValue="11" />
+						<f:selectItem itemLabel="Dezembro" itemValue="12" />
+					</p:selectOneMenu>
+					<p:outputLabel value="Escolha o estado: " for="estado"
+						style="width: 100%" />
+					<p:selectOneMenu id="estado" value="#{bilheteBean.idestado}"
+						style="width: 80%">
+						<f:selectItem itemLabel="Escolha um estado" itemValue="" />
+						<f:selectItems value="#{bilheteBean.listarEstado()}" var="estado"
+							itemLabel="#{estado.estado}" itemValue="#{estado.id}" />
+					</p:selectOneMenu>
+					<p:commandButton action="#{bilheteBean.pesquisa()}"
+						value="Pesquisar" style="width: 100%" />
+				</p:panelGrid>
+				<p:dataTable>
+					
+				</p:dataTable>
+			</p:panel>
+		</div>
+	</h:form>
+</body>
 </html>
