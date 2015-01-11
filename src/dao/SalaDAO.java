@@ -11,7 +11,7 @@ import banco.Conexao;
 import entidades.*;
 
 public class SalaDAO {
-	public List<Sala> listarCid() {
+	public List<Sala> listarCid(int idfilial) {
 		Connection conn = new Conexao().getCon();
 
 		List<Sala> dadosSala;
@@ -19,7 +19,7 @@ public class SalaDAO {
 
 		try {
 			Statement stmt = conn.createStatement();
-			String query = "SELECT cidade, idsala FROM sala";
+			String query = "SELECT cidade, idsala FROM sala WHERE fk_idfilial = " + idfilial;
 			ResultSet rs = stmt.executeQuery(query);
 
 			while (rs.next()) {

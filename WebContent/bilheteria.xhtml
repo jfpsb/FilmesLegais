@@ -8,17 +8,12 @@
 <h:head>
 	<title>Bilheteria</title>
 	<h:outputStylesheet library="css" name="pages.css" />
-	<style>
-table td {
-	text-align: center;
-}
-</style>
 </h:head>
 <body>
 	<h:form>
-		<div align="left">
+		<p:panelGrid columns="2" style="width: 100%">
 			<p:panel header="Pesquisa específica"
-				style="width: 30%; text-align: center;">
+				style="width: 100%; text-align: center;">
 				<p:panelGrid columns="2" style="width: 100%">
 					<p:outputLabel value="Escolha o mês: " for="mes"
 						style="width: 100%" />
@@ -46,14 +41,38 @@ table td {
 						<f:selectItems value="#{bilheteBean.listarEstado()}" var="estado"
 							itemLabel="#{estado.estado}" itemValue="#{estado.id}" />
 					</p:selectOneMenu>
-					<p:commandButton action="#{bilheteBean.pesquisa()}"
-						value="Pesquisar" style="width: 100%" />
+					<p:commandButton id="pesquisa" action="#{bilheteBean.pesquisa()}"
+						value="Pesquisar" style="width: 100%" update="table">
+					</p:commandButton>
 				</p:panelGrid>
-				<p:dataTable>
-					
+				<p:dataTable id="table" value="#{bilheteBean.pesquisa()}"
+					var="table" emptyMessage="Faça suas escolhas acima">
+					<p:column>
+						<f:facet name="header">Filme</f:facet>
+						<h:outputLabel value="#{table.filme}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Venda Total</f:facet>
+						<h:outputLabel value="#{table.preco}" />
+					</p:column>
 				</p:dataTable>
 			</p:panel>
-		</div>
+			<p:panel header="TOP 10 Geral"
+				style="width: 100%; text-align: center;">
+				<p:dataTable id="tableGeral" value="#{bilheteBean.pesquisaGeral()}" var="tableGeral">
+					<p:column>
+						<f:facet name="header">Filme</f:facet>
+						<h:outputLabel value="#{tableGeral.filme}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Venda Total</f:facet>
+						<h:outputLabel value="#{tableGeral.preco}" />
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+		</p:panelGrid>
+
+
 	</h:form>
 </body>
 </html>

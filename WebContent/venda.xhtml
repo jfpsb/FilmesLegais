@@ -13,21 +13,30 @@
 					<!--Como uma cidade vai ter uma só sala, aparece o nome da cidade e o ItemValue será o id da sala.
 					Vai vir de um select para o combobox-->
 					<center>
+						<p:outputLabel value="Escolha a filial: " style="width: 100%" />
+						<p:selectOneButton id="idfilial" value="#{vendaBean.idfilial}">
+							<f:selectItems value="#{vendaBean.listarFilial()}" var="filial"
+								itemLabel="#{filial.estado}" itemValue="#{filial.id}" />
+							<f:ajax execute="idfilial" render="sala" />
+						</p:selectOneButton>
 						<p:panelGrid columns="2">
 							<p:outputLabel value="Em que cidade está: " for="sala" />
 							<p:selectOneMenu id="sala" style="width: 80%"
-								value="#{vendaBean.bilheteria.idsala}" required="true" requiredMessage="Selecione uma Cidade!">
+								value="#{vendaBean.bilheteria.idsala}" required="true"
+								requiredMessage="Selecione uma Cidade!">
 								<f:selectItem itemLabel="Escolha a cidade" itemValue="" />
 								<f:selectItems value="#{vendaBean.listSala}" var="cid"
 									itemLabel="#{cid.cidade}" itemValue="#{cid.id}" />
 							</p:selectOneMenu>
 							<p:outputLabel value="Filme que será assistido: " for="filme" />
 							<p:inputText id="filme" value="#{vendaBean.filme.filme}"
-								onclick="PF('filmes').show();" required="true" requiredMessage="Selecione um Filme!"/>
+								onclick="PF('filmes').show();" required="true"
+								requiredMessage="Selecione um Filme!" />
 
 							<p:outputLabel value="Preço: " for="preco" />
 							<p:selectOneMenu id="preco" style="width: 80%"
-								value="#{vendaBean.bilheteria.idpreco}" required="true" requiredMessage="Selecione um Preço!">
+								value="#{vendaBean.bilheteria.idpreco}" required="true"
+								requiredMessage="Selecione um Preço!">
 								<f:selectItem itemLabel="Escolha o preço" itemValue="" />
 								<f:selectItems value="#{vendaBean.listPreco}" var="preco"
 									itemLabel="#{preco.descricao}" itemValue="#{preco.id}" />

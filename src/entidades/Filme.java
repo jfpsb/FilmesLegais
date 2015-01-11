@@ -1,6 +1,9 @@
 package entidades;
 
-public class Filme {
+import java.io.Serializable;
+
+public class Filme implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String filme;
 	private String sinopse;
