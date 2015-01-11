@@ -13,7 +13,7 @@ public class BilheteriaDAO {
 		Connection conn = new Conexao().getCon();
 		PreparedStatement insereSt = null;
 		
-		String sql = "INSERT INTO bilheteria (idsala, idfilme, idpreco, data) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO bilheteria (fk_idsala, fk_idfilme, fk_idpreco, data, fk_idfilial) VALUES (?, ?, ?, ?, ?)";
 		
 		try {
 			insereSt = conn.prepareStatement(sql);
@@ -21,6 +21,7 @@ public class BilheteriaDAO {
 			insereSt.setLong(2, bilhete.getIdfilme());
 			insereSt.setLong(3, bilhete.getIdpreco());
 			insereSt.setTimestamp(4, bilhete.getData());
+			insereSt.setLong(5, bilhete.getIdfilial());
 			insereSt.executeUpdate();
 			System.out.println("Salvo com sucesso.");
 			new Mensagens().INFO("Dados Salvos:\nFilme ID: " + bilhete.getIdfilme());

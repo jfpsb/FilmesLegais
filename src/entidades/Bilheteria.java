@@ -4,8 +4,15 @@ package entidades;
 import java.sql.Timestamp;
 
 public class Bilheteria {
-	private int id, idsala, idfilme, idpreco;	
+	private int id, idsala, idfilme, idpreco, idfilial;
 	private Timestamp data;
+	
+	public int getIdfilial() {
+		return idfilial;
+	}
+	public void setIdfilial(int idfilial) {
+		this.idfilial = idfilial;
+	}
 	
 	public int getId() {
 		return id;
