@@ -4,13 +4,14 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
+import dao.BilheteriaDAO;
 import dao.FilialDAO;
 import entidades.*;
 
 @ManagedBean(name="bilheteBean")
 public class BilheteriaBean {
 	Bilheteria bilheteria = new Bilheteria();
-	int mes, idestado;	
+	int mes, idestado;
 
 	public int getMes() {
 		return mes;
@@ -40,7 +41,11 @@ public class BilheteriaBean {
 		return new FilialDAO().listar();
 	}
 	
-	public void pesquisa() {
-		
+	public List<Bilheteria> pesquisa() {
+		return new BilheteriaDAO().pesquisa(getMes(), getIdestado());
+	}
+	
+	public List<Bilheteria> pesquisaGeral() {
+		return new BilheteriaDAO().pesquisa();
 	}
 }

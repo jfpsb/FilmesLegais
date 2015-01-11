@@ -14,10 +14,10 @@
 					Vai vir de um select para o combobox-->
 					<center>
 						<p:outputLabel value="Escolha a filial: " style="width: 100%" />
-						<p:selectOneButton id="idfilial" value="#{vendaBean.idfilial}" >
+						<p:selectOneButton id="idfilial" value="#{vendaBean.idfilial}">
 							<f:selectItems value="#{vendaBean.listarFilial()}" var="filial"
-							itemLabel="#{filial.estado}" itemValue="#{filial.id}" />
-							<f:ajax execute="idfilial" render="sala"/>
+								itemLabel="#{filial.estado}" itemValue="#{filial.id}" />
+							<f:ajax execute="idfilial" render="sala" />
 						</p:selectOneButton>
 						<p:panelGrid columns="2">
 							<p:outputLabel value="Em que cidade está: " for="sala" />

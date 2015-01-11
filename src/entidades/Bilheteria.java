@@ -1,12 +1,28 @@
 package entidades;
 
+import java.io.Serializable;
 //Timestamp salva a data + hora, usado em banco de dados
 import java.sql.Timestamp;
 
-public class Bilheteria {
+public class Bilheteria implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int id, idsala, idfilme, idpreco, idfilial;
 	private Timestamp data;
+	private String filme;
+	private double preco;
 	
+	public String getFilme() {
+		return filme;
+	}
+	public void setFilme(String filme) {
+		this.filme = filme;
+	}
+	public double getPreco() {
+		return preco;
+	}
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
 	public int getIdfilial() {
 		return idfilial;
 	}
