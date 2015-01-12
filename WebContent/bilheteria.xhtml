@@ -13,7 +13,7 @@
 	<h:form>
 		<p:panelGrid columns="2" style="width: 100%">
 			<p:panel header="Pesquisa específica"
-				style="width: 100%; text-align: center;">
+				style="width: 100%; text-align: center; height: 100%;">
 				<p:panelGrid columns="2" style="width: 100%">
 					<p:outputLabel value="Escolha o mês: " for="mes"
 						style="width: 100%" />
@@ -52,20 +52,20 @@
 						<h:outputLabel value="#{table.filme}" />
 					</p:column>
 					<p:column>
-						<f:facet name="header">Venda Total</f:facet>
+						<f:facet name="header">Venda Total (R$)</f:facet>
 						<h:outputLabel value="#{table.preco}" />
 					</p:column>
 				</p:dataTable>
 			</p:panel>
 			<p:panel header="TOP 10 Geral"
-				style="width: 100%; text-align: center;">
+				style="width: 100%; text-align: center; height: 100%;">
 				<p:dataTable id="tableGeral" value="#{bilheteBean.pesquisaGeral()}" var="tableGeral">
 					<p:column>
 						<f:facet name="header">Filme</f:facet>
 						<h:outputLabel value="#{tableGeral.filme}" />
 					</p:column>
 					<p:column>
-						<f:facet name="header">Venda Total</f:facet>
+						<f:facet name="header">Venda Total  (R$)</f:facet>
 						<h:outputLabel value="#{tableGeral.preco}" />
 					</p:column>
 				</p:dataTable>

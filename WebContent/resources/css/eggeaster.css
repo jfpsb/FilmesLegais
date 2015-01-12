@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-image: url("#{resource['images/easter.gif']}") !important;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
